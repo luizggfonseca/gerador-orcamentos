@@ -33,7 +33,6 @@ st.write("Preencha os dados abaixo para gerar seu PDF.")
 st.sidebar.header("🏢 Dados da empresa")
 empresa_nome = st.sidebar.text_input("Razão Social_CNPJ")
 empresa_sub = st.sidebar.text_input("Contato", "Tel: (11) 99999-9999 | Email: contato@exemplo.com")
-empresa_sub = st.sidebar.text_input("Contato", "Tel: (11) 99999-9999 | Email: contato@exemplo.com")
 
 # --- DADOS DO CLIENTE ---
 col1, col2 = st.columns(2)
