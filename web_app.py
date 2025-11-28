@@ -26,20 +26,20 @@ class PDF(FPDF):
 # --- CONFIGURAÇÃO DA PÁGINA WEB ---
 st.set_page_config(page_title="Gerador de Orçamentos", layout="wide")
 
-st.title("📄 Gerador de Orçamentos Profissional")
+st.title("📄 Gerador de orçamentos profissional")
 st.write("Preencha os dados abaixo para gerar seu PDF.")
 
 # --- BARRA LATERAL (CONFIGURAÇÕES DA EMPRESA) ---
-st.sidebar.header("🏢 Dados da Sua Empresa")
-empresa_nome = st.sidebar.text_input("Nome da Empresa", "Confecções da Tia")
-empresa_sub = st.sidebar.text_input("Subtítulo / Contato", "Tel: (11) 99999-9999 | Email: contato@exemplo.com")
+st.sidebar.header("🏢 Dados da empresa")
+empresa_nome = st.sidebar.text_input("Razão Social_CNPJ")
+empresa_sub = st.sidebar.text_input("Contato", "Tel: (11) 99999-9999 | Email: contato@exemplo.com")
 
 # --- DADOS DO CLIENTE ---
 col1, col2 = st.columns(2)
 with col1:
-    cliente = st.text_input("Nome do Cliente")
+    cliente = st.text_input("Cliente")
 with col2:
-    telefone = st.text_input("Telefone do Cliente")
+    telefone = st.text_input("Telefone")
 
 # --- CARRINHO DE COMPRAS (SESSION STATE) ---
 # Na web, precisamos "lembrar" da lista quando a página atualiza.
@@ -47,19 +47,19 @@ if 'itens' not in st.session_state:
     st.session_state.itens = []
 
 st.divider()
-st.subheader("🛒 Adicionar Produtos")
+st.subheader("🛒 Adicionar produtos")
 
 # Formulário para adicionar itens
 with st.form("form_add"):
     c1, c2, c3 = st.columns([3, 1, 1])
     with c1:
-        desc = st.text_input("Descrição do Produto")
+        desc = st.text_input("Produto e/ou serviço")
     with c2:
-        qtd = st.number_input("Qtd", min_value=1, value=1)
+        qtd = st.number_input("Quant.", min_value=1, value=1)
     with c3:
-        preco = st.number_input("Preço Unit.", min_value=0.0, format="%.2f")
+        preco = st.number_input("Preço unit.", min_value=0.0, format="%.2f")
     
-    btn_adicionar = st.form_submit_button("Adicionar Item")
+    btn_adicionar = st.form_submit_button("Adicionar item")
 
     if btn_adicionar:
         if desc:
